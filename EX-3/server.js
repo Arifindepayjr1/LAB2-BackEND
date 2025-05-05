@@ -39,7 +39,8 @@ const server = http.createServer((req, res) => {
 
         const filePath = "submissions.txt";
 
-        fs.writeFileSync(filePath, body);
+        const bodyFile = body + "\n";
+        fs.appendFileSync(filePath, bodyFile);
 
         const fileContent = fs.readFileSync(filePath, "utf8");
         console.log("FileContent:", fileContent);
